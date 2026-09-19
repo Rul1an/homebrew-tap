@@ -3,6 +3,11 @@ class Assay < Formula
   homepage "https://github.com/Rul1an/assay"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   on_macos do
     on_arm do
       url "https://github.com/Rul1an/assay/releases/download/v6.6.1/assay-v6.6.1-aarch64-apple-darwin.tar.gz"
@@ -23,11 +28,6 @@ class Assay < Formula
       url "https://github.com/Rul1an/assay/releases/download/v6.6.1/assay-v6.6.1-x86_64-unknown-linux-gnu.tar.gz"
       sha256 "94feae9b01bb1682d214c09007c86b499d8b77030b8dd8e00b787bf32e2b5b5b"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install
