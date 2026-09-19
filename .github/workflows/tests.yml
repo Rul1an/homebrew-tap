@@ -1,0 +1,56 @@
+name: Formula tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  formula:
+    name: install, test and audit (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, macos-15-intel, ubuntu-latest, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+
+      - name: Put Homebrew on PATH
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+            echo "/home/linuxbrew/.linuxbrew/bin" >> "$GITHUB_PATH"
+          fi
+
+      - name: Tap this checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          brew --version
+          brew tap rul1an/tap "$GITHUB_WORKSPACE"
+
+      - name: Audit
+        shell: bash
+        run: brew audit --strict --online --formula rul1an/tap/assay
+
+      - name: Install
+        shell: bash
+        run: brew install --formula rul1an/tap/assay
+
+      - name: Test
+        shell: bash
+        run: |
+          set -euo pipefail
+          brew test rul1an/tap/assay
+          assay --version
