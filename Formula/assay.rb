@@ -10,23 +10,23 @@ class Assay < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/Rul1an/assay/releases/download/v6.6.2/assay-v6.6.2-aarch64-apple-darwin.tar.gz"
-      sha256 "893c6193f10e8db5ffa3bbce510ee19ed6315220e6d7efa00b8c1819d7e911fd"
+      url "https://github.com/Rul1an/assay/releases/download/v6.6.3/assay-v6.6.3-aarch64-apple-darwin.tar.gz"
+      sha256 "966bc24398da976dce9ecc36f542835054d4d76e59812df56cf0fc38e410edf6"
     end
     on_intel do
-      url "https://github.com/Rul1an/assay/releases/download/v6.6.2/assay-v6.6.2-x86_64-apple-darwin.tar.gz"
-      sha256 "8105476c8d9056f34fdf0c68af2c52edc9f7d2415340c36b3a56baa3429da50d"
+      url "https://github.com/Rul1an/assay/releases/download/v6.6.3/assay-v6.6.3-x86_64-apple-darwin.tar.gz"
+      sha256 "b3bd7ecfcdd4dbc2aa73c5c6250ca8c8fead343bfdba848570a302194ffedfdb"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/Rul1an/assay/releases/download/v6.6.2/assay-v6.6.2-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "003ec6522752fe7cba36830fc14dc42d7d763742ed087225ab1d6608bdfb6300"
+      url "https://github.com/Rul1an/assay/releases/download/v6.6.3/assay-v6.6.3-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "9f4fa0b9c4f91b07f394ac78448c10b9d9e672da3c9277214d8bbfe27e4d36dc"
     end
     on_intel do
-      url "https://github.com/Rul1an/assay/releases/download/v6.6.2/assay-v6.6.2-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "82a697ef61f7d64e67fbb529e7c0485b7c53303b2a85b089b4408bce09612443"
+      url "https://github.com/Rul1an/assay/releases/download/v6.6.3/assay-v6.6.3-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "c4f8c5579a96ae8f732e751c760e9bde496b8b656f4ad5f4a065f9bfd7f9faa0"
     end
   end
 
