@@ -39,6 +39,9 @@ jobs:
           set -euo pipefail
           brew --version
           brew tap rul1an/tap "$GITHUB_WORKSPACE"
+          # Homebrew 7.0.11 grants implicit trust only to install commands, and audit
+          # runs before install. Trust only the formula under test from this checkout.
+          brew trust --formula rul1an/tap/assay
 
       - name: Audit
         shell: bash
